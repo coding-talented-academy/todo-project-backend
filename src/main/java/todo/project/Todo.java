@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "todo_table")
+@Table(name = "todo")
 public class Todo {
 
   public Todo(String contents, Date createdDate, String userName, Boolean isDone){
@@ -24,7 +24,7 @@ public class Todo {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  private Long id; //primary key
 
   private String contents;
 
@@ -33,4 +33,12 @@ public class Todo {
   private String userName;
 
   private Boolean isDone;
+
+  public Todo update(TodoUpdateReqDto todoUpdateReqDto) {
+    this.contents = todoUpdateReqDto.getContents();
+    this.isDone = todoUpdateReqDto.getIsDone();
+    this.userName = todoUpdateReqDto.getUserName();
+
+    return this;
+  }
 }

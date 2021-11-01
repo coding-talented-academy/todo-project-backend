@@ -21,15 +21,15 @@ public class SwaggerConfig {
         .directModelSubstitute(Object.class, Void.class)
         .apiInfo(apiInfo())
         .select()
-        .apis(RequestHandlerSelectors.basePackage("com.springboot.blueprint"))
+        .apis(RequestHandlerSelectors.basePackage("todo.project"))
         .paths(PathSelectors.any())
         .build();
   }
 
   private ApiInfo apiInfo() {
     return new ApiInfoBuilder()
-        .title("<제목>")
-        .description("<설명>")
+        .title("TODO API")
+        .description("TODO API 명세입니다.")
         .license("Apache License Version 2.0")
         .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
         .version("1.0")
